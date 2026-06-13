@@ -5,11 +5,11 @@ export default function Shop() {
         <h1 style={styles.title}>SHOP</h1>
 
         <p style={styles.text}>
-          This is your fragrance lab. Products will be added soon.
+          This is your fragrance lab. Products coming soon.
         </p>
 
         <a href="/" style={styles.button}>
-          Back to Home
+          Back Home
         </a>
       </div>
     </main>
@@ -26,7 +26,7 @@ const styles = {
     fontFamily: "Arial",
   },
   container: {
-    textAlign: "center",
+    textAlign: "center" as const,
   },
   title: {
     fontSize: "40px",
