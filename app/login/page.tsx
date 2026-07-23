@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createSupabaseBrowserClient } from "@/lib/supabase-browser";
-import { PathIcon } from "@/components/icons";
+import { HundredMark } from "@/components/icons";
 
 type Mode = "signin" | "signup";
 
@@ -60,8 +60,8 @@ export default function LoginPage() {
     <main className="flex min-h-dvh flex-1 items-center justify-center px-6 py-16">
       <div className="w-full max-w-md">
         <Link href="/" className="mb-8 flex items-center justify-center gap-2 font-display text-xl font-semibold">
-          <PathIcon className="h-6 w-6 text-[var(--color-primary)]" />
-          Sidetrack
+          <HundredMark className="h-6 w-6 text-[var(--color-primary)]" />
+          Hundred
         </Link>
         <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-sm">
           <div className="mb-6 flex rounded-xl bg-[var(--color-muted)] p-1">

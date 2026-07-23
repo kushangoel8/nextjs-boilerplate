@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 import { addTrack, signOut } from "./actions";
 import { TrackRow } from "@/components/dashboard/TrackRow";
-import { PathIcon, Icons } from "@/components/icons";
+import { HundredMark, Icons } from "@/components/icons";
 
 export default async function DashboardPage() {
   const supabase = await createSupabaseServerClient();
@@ -39,8 +39,8 @@ export default async function DashboardPage() {
     <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
       <div className="mb-10 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold">
-          <PathIcon className="h-5 w-5 text-[var(--color-primary)]" />
-          Sidetrack
+          <HundredMark className="h-5 w-5 text-[var(--color-primary)]" />
+          Hundred
         </Link>
         <form action={signOut}>
           <button
@@ -108,7 +108,7 @@ export default async function DashboardPage() {
                 className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3"
               >
                 <div className="flex items-start gap-2.5">
-                  <Icons.message className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary)]" />
+                  <Icons.chat className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary)]" />
                   <div className="min-w-0">
                     <p className="text-sm text-[var(--color-foreground)]">{c.message_text}</p>
                     {c.reply_text && (
