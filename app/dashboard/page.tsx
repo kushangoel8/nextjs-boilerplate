@@ -55,7 +55,7 @@ export default async function DashboardPage() {
       <section className="mb-10">
         <h1 className="font-display text-2xl font-semibold tracking-tight">Your tracks</h1>
         <p className="mt-1 text-sm text-[var(--color-muted-foreground)]">
-          These are the specific things Sidetrack will check in on.
+          These are the specific things Hundred will check in on.
         </p>
 
         <form
@@ -66,14 +66,14 @@ export default async function DashboardPage() {
             name="label"
             type="text"
             required
-            placeholder="Track name — e.g. Novel, AP Chem, MUN prep"
+            placeholder="Track name"
             maxLength={80}
             className="h-11 flex-1 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] px-3.5 text-sm outline-none ring-[var(--color-ring)] focus:ring-2"
           />
           <input
             name="description"
             type="text"
-            placeholder="Optional detail (e.g. 'stuck on chapter 12')"
+            placeholder="Optional detail"
             maxLength={160}
             className="h-11 flex-1 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] px-3.5 text-sm outline-none ring-[var(--color-ring)] focus:ring-2"
           />
@@ -93,7 +93,7 @@ export default async function DashboardPage() {
           </ul>
         ) : (
           <p className="mt-6 rounded-xl border border-dashed border-[var(--color-border)] px-4 py-8 text-center text-sm text-[var(--color-muted-foreground)]">
-            No tracks yet — add the first thing you&apos;re juggling above.
+            No tracks yet.
           </p>
         )}
       </section>
@@ -123,7 +123,7 @@ export default async function DashboardPage() {
           </ul>
         ) : (
           <p className="mt-4 rounded-xl border border-dashed border-[var(--color-border)] px-4 py-8 text-center text-sm text-[var(--color-muted-foreground)]">
-            No check-ins sent yet — they start once your tracks are set up and the schedule runs.
+            No check-ins yet.
           </p>
         )}
       </section>

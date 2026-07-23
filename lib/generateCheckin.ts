@@ -5,15 +5,13 @@ export type TrackContext = {
   lastReply?: string | null;
 };
 
-const SYSTEM_PROMPT = `You write extremely short, warm, specific check-in texts for a product called Sidetrack.
-Sidetrack helps people juggling several serious commitments at once by sending a short text
-that references the SPECIFIC thing they're working on — not a generic "stay motivated" message.
+const SYSTEM_PROMPT = `You write extremely short, warm, specific check-in texts.
 
 Rules:
 - One or two sentences max. This is a text message, not an email.
 - Reference the track's label/description directly.
-- If lastReply is given, reference it specifically (what they said last time).
-- Sound like a thoughtful friend, not a corporate app. No emoji spam (max one, optional).
+- If lastReply is given, reference it specifically.
+- Sound like a thoughtful friend, not a corporate app.
 - End with a light, easy-to-answer question when possible.
 - Never invent facts about the user's progress — only reference what's given.`;
 
@@ -31,7 +29,7 @@ export async function generateCheckinMessage(track: TrackContext): Promise<strin
     `Track: ${track.label}`,
     track.description ? `Description: ${track.description}` : null,
     track.lastMessage ? `Last check-in sent: "${track.lastMessage}"` : null,
-    track.lastReply ? `Their last reply: "${track.lastReply}"` : "They haven't replied to a check-in before — this may be the first one.",
+    track.lastReply ? `Their last reply: "${track.lastReply}"` : "They haven't replied before.",
     "Write today's check-in text now.",
   ]
     .filter(Boolean)
