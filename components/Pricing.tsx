@@ -23,7 +23,7 @@ export function Pricing() {
         <Reveal delay={0.1}>
           <div className="mt-10 rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-sm">
             <div className="flex items-baseline gap-1">
-              <span className="font-display text-5xl font-semibold">$4.99</span>
+              <span className="font-display text-5xl font-semibold">$1.99</span>
               <span className="text-[var(--color-muted-foreground)]">/month</span>
             </div>
             <ul className="mt-7 flex flex-col gap-3">
