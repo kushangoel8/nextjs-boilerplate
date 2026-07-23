@@ -1,48 +1,71 @@
 import { Reveal } from "./Reveal";
 import { Icons } from "./icons";
 
-const features = [
-  "Unlimited tracks",
-  "Daily text + voice-note check-ins",
-  "Text back to update — it remembers next time",
-  "Cancel anytime",
+const free = ["1 full report", "100-persona panel", "Ranked objections", "Shareable link"];
+const paid = [
+  "Everything in the free report",
+  "Custom panel demographics",
+  "Price-sensitivity curve",
+  "Compare two versions head-to-head",
 ];
 
 export function Pricing() {
   return (
-    <section id="pricing" className="px-6 py-24">
-      <div className="mx-auto max-w-lg">
-        <Reveal className="text-center">
-          <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            Simple pricing
-          </h2>
-          <p className="mt-4 text-lg text-[var(--color-muted-foreground)]">
-            One plan. No tiers to compare.
-          </p>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <div className="mt-10 rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-sm">
-            <div className="flex items-baseline gap-1">
-              <span className="font-display text-5xl font-semibold">$1.99</span>
-              <span className="text-[var(--color-muted-foreground)]">/month</span>
-            </div>
-            <ul className="mt-7 flex flex-col gap-3">
-              {features.map((f) => (
-                <li key={f} className="flex items-center gap-2.5 text-sm">
-                  <Icons.check className="h-4.5 w-4.5 shrink-0 text-[var(--color-primary)]" />
-                  <span className="text-[var(--color-foreground)]">{f}</span>
+    <section id="pricing" className="mx-auto max-w-6xl px-6 py-24">
+      <Reveal>
+        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-primary)]">
+          Pricing
+        </p>
+        <h2 className="mt-3 max-w-xl font-display text-3xl font-bold tracking-tight sm:text-4xl">
+          Cheaper than being wrong.
+        </h2>
+      </Reveal>
+      <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <Reveal>
+          <div className="h-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8">
+            <h3 className="font-display text-lg font-semibold">First report</h3>
+            <p className="mt-2 font-display text-4xl font-bold">Free</p>
+            <ul className="mt-6 flex flex-col gap-2.5">
+              {free.map((f) => (
+                <li key={f} className="flex items-center gap-2.5 text-sm text-[var(--color-muted-foreground)]">
+                  <Icons.seal className="h-4 w-4 shrink-0 text-[var(--color-positive)]" weight="fill" />
+                  {f}
                 </li>
               ))}
             </ul>
-            <a
-              href="#signup"
-              className="mt-8 block cursor-pointer rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-center text-sm font-semibold text-[var(--color-on-primary)] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Get early access
-            </a>
+          </div>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <div className="relative h-full overflow-hidden rounded-2xl border border-[var(--color-ring)] bg-[var(--color-surface-raised)] p-8">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-25 blur-2xl"
+              style={{ background: "radial-gradient(closest-side, #7c3aed, transparent)" }}
+            />
+            <h3 className="font-display text-lg font-semibold">Per report</h3>
+            <p className="mt-2 font-display text-4xl font-bold">
+              $19
+              <span className="ml-1 text-base font-medium text-[var(--color-muted-foreground)]">
+                / report
+              </span>
+            </p>
+            <ul className="mt-6 flex flex-col gap-2.5">
+              {paid.map((f) => (
+                <li key={f} className="flex items-center gap-2.5 text-sm text-[var(--color-muted-foreground)]">
+                  <Icons.seal className="h-4 w-4 shrink-0 text-[var(--color-primary)]" weight="fill" />
+                  {f}
+                </li>
+              ))}
+            </ul>
           </div>
         </Reveal>
       </div>
+      <Reveal delay={0.15}>
+        <p className="mt-6 text-xs leading-relaxed text-[var(--color-muted-foreground)]">
+          Synthetic panels are a first pass, not a substitute for talking to real
+          people — they tell you what to fix before you spend real money finding out.
+        </p>
+      </Reveal>
     </section>
   );
 }
