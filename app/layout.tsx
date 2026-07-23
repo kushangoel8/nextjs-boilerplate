@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -9,14 +9,14 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["500", "600", "700"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
-const title = "Sidetrack — a check-in that actually gets through";
+const title = "Hundred — test your idea on 100 people who don't exist";
 const description =
-  "Short, personal SMS and voice-note check-ins for people juggling multiple serious commitments at once. Built for people who lose focus on one thing thinking about another.";
+  "Hundred runs your pitch, ad, or landing page past a panel of 100 AI personas and turns their reactions into ranked objections, sentiment, and a price curve — before you spend a dollar on the real thing.";
 const siteUrl = "https://nextjs-boilerplate-kushangoel8-7415-kushan-goel-s-projects.vercel.app";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: siteUrl,
-    siteName: "Sidetrack",
+    siteName: "Hundred",
     type: "website",
   },
   twitter: {
@@ -40,14 +40,14 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Sidetrack",
-  applicationCategory: "ProductivityApplication",
+  name: "Hundred",
+  applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description,
   url: siteUrl,
   offers: {
     "@type": "Offer",
-    price: "1.99",
+    price: "19",
     priceCurrency: "USD",
   },
 };
@@ -60,7 +60,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <script
