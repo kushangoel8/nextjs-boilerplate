@@ -1,49 +1,25 @@
+import { Nav } from "@/components/Nav";
+import { Hero } from "@/components/Hero";
+import { Problem } from "@/components/Problem";
+import { HowItWorks } from "@/components/HowItWorks";
+import { Proof } from "@/components/Proof";
+import { Pricing } from "@/components/Pricing";
+import { SignupForm } from "@/components/SignupForm";
+import { Footer } from "@/components/Footer";
+
 export default function Home() {
   return (
-    <main style={styles.main}>
-      <div style={styles.center}>
-        <h1 style={styles.title}>PERFECTIONISTS</h1>
-
-        <p style={styles.subtitle}>
-          Minimal fragrance lab for experimental scents.
-        </p>
-
-        <a href="/shop" style={styles.button}>
-          Enter Shop
-        </a>
-      </div>
-    </main>
+    <>
+      <Nav />
+      <main className="flex-1">
+        <Hero />
+        <Problem />
+        <HowItWorks />
+        <Proof />
+        <Pricing />
+        <SignupForm />
+      </main>
+      <Footer />
+    </>
   );
 }
-
-const styles: Record<string, React.CSSProperties> = {
-  main: {
-    height: "100vh",
-    background: "black",
-    color: "white",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    fontFamily: "Arial",
-  },
-  center: {
-    textAlign: "center",
-  },
-  title: {
-    fontSize: "50px",
-    letterSpacing: "6px",
-    marginBottom: "10px",
-  },
-  subtitle: {
-    opacity: 0.7,
-    marginBottom: "30px",
-  },
-  button: {
-    padding: "12px 24px",
-    background: "white",
-    color: "black",
-    textDecoration: "none",
-    borderRadius: "8px",
-    fontWeight: "bold",
-  },
-};
