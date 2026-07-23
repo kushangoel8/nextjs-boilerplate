@@ -17,6 +17,9 @@ export function Nav() {
           <a href="#pricing" className="transition-colors hover:text-[var(--color-foreground)]">
             Pricing
           </a>
+          <a href="/login" className="transition-colors hover:text-[var(--color-foreground)]">
+            Log in
+          </a>
         </nav>
         <a
           href="#signup"

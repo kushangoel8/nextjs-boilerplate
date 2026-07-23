@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -13,10 +14,27 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const title = "Sidetrack — a check-in that actually gets through";
+const description =
+  "Short, personal SMS and voice-note check-ins for people juggling multiple serious commitments at once. Built for people who lose focus on one thing thinking about another.";
+const siteUrl = "https://nextjs-boilerplate-kushangoel8-7415-kushan-goel-s-projects.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Sidetrack — a check-in that actually gets through",
-  description:
-    "Short, personal SMS and voice-note check-ins for people juggling multiple serious commitments at once. Built for people who lose focus on one thing thinking about another.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: "Sidetrack",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({
@@ -29,7 +47,10 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
