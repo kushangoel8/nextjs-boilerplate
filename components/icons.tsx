@@ -1,28 +1,31 @@
 import {
-  Path,
-  ChatCircleText,
-  Waveform,
-  ListChecks,
-  ArrowsClockwise,
-  Checks,
-  BookOpenText,
-  Flask,
-  MicrophoneStage,
-  Exam,
+  UsersThree,
+  ChartBar,
+  Sparkle,
+  Quotes,
+  ShareNetwork,
+  Lightning,
+  Target,
+  ChatsCircle,
+  Brain,
+  TrendUp,
+  SealCheck,
 } from "@phosphor-icons/react/dist/ssr";
 
-export function PathIcon(props: { className?: string }) {
-  return <Path weight="fill" {...props} />;
+export function HundredMark(props: { className?: string }) {
+  return <UsersThree weight="fill" {...props} />;
 }
 
 export const Icons = {
-  message: ChatCircleText,
-  waveform: Waveform,
-  list: ListChecks,
-  sync: ArrowsClockwise,
-  check: Checks,
-  novel: BookOpenText,
-  research: Flask,
-  mun: MicrophoneStage,
-  exam: Exam,
+  panel: UsersThree,
+  chart: ChartBar,
+  spark: Sparkle,
+  quotes: Quotes,
+  share: ShareNetwork,
+  bolt: Lightning,
+  target: Target,
+  chat: ChatsCircle,
+  brain: Brain,
+  trend: TrendUp,
+  seal: SealCheck,
 };

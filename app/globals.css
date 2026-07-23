@@ -1,35 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #4f46e5;
+  --color-primary: #7c3aed;
   --color-on-primary: #ffffff;
-  --color-secondary: #818cf8;
-  --color-accent: #ea580c;
-  --color-background: #eef2ff;
-  --color-surface: #ffffff;
-  --color-foreground: #1e1b4b;
-  --color-muted: #ebeef8;
-  --color-muted-foreground: #4c4a75;
-  --color-border: #c7d2fe;
-  --color-destructive: #dc2626;
-  --color-ring: #4f46e5;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-primary: #818cf8;
-    --color-on-primary: #1e1b4b;
-    --color-secondary: #4f46e5;
-    --color-accent: #fb923c;
-    --color-background: #0d0b26;
-    --color-surface: #16143a;
-    --color-foreground: #ede9fe;
-    --color-muted: #201d4a;
-    --color-muted-foreground: #a5a3d6;
-    --color-border: #322f66;
-    --color-destructive: #f87171;
-    --color-ring: #818cf8;
-  }
+  --color-secondary: #6366f1;
+  --color-accent: #ec4899;
+  --color-cyan: #22d3ee;
+  --color-positive: #34d399;
+  --color-warn: #fbbf24;
+  --color-negative: #f87171;
+  --color-background: #0a0714;
+  --color-surface: #14102a;
+  --color-surface-raised: #1b1638;
+  --color-foreground: #f2efff;
+  --color-muted: #201a42;
+  --color-muted-foreground: #9d97c9;
+  --color-border: #2c2558;
+  --color-destructive: #f87171;
+  --color-ring: #8b5cf6;
 }
 
 @theme inline {
@@ -37,8 +25,13 @@
   --color-on-primary: var(--color-on-primary);
   --color-secondary: var(--color-secondary);
   --color-accent: var(--color-accent);
+  --color-cyan: var(--color-cyan);
+  --color-positive: var(--color-positive);
+  --color-warn: var(--color-warn);
+  --color-negative: var(--color-negative);
   --color-background: var(--color-background);
   --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
   --color-foreground: var(--color-foreground);
   --color-muted: var(--color-muted);
   --color-muted-foreground: var(--color-muted-foreground);
@@ -46,7 +39,11 @@
   --color-destructive: var(--color-destructive);
   --color-ring: var(--color-ring);
   --font-display: var(--font-space-grotesk);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-dm-sans);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
