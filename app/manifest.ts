@@ -2,14 +2,14 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Sidetrack — check-ins that actually get through",
-    short_name: "Sidetrack",
+    name: "Hundred — test your idea on 100 people who don't exist",
+    short_name: "Hundred",
     description:
-      "Short, personal SMS and voice-note check-ins for people juggling multiple serious commitments at once.",
+      "Synthetic audience panels for founders — ranked objections, sentiment, and a price curve before you spend a dollar.",
     start_url: "/",
     display: "standalone",
-    background_color: "#ffffff",
-    theme_color: "#4f46e5",
+    background_color: "#0a0714",
+    theme_color: "#7c3aed",
     icons: [
       {
         src: "/icon",

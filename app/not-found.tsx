@@ -1,16 +1,16 @@
 import Link from "next/link";
-import { PathIcon } from "@/components/icons";
+import { HundredMark } from "@/components/icons";
 
 export default function NotFound() {
   return (
     <main className="flex min-h-dvh flex-1 flex-col items-center justify-center gap-6 px-6 text-center">
-      <PathIcon className="h-10 w-10 text-[var(--color-primary)]" />
+      <HundredMark className="h-10 w-10 text-[var(--color-primary)]" />
       <div>
         <h1 className="font-display text-3xl font-semibold tracking-tight">
-          You wandered off track.
+          404 — the panel is 97% sure this page doesn&apos;t exist.
         </h1>
         <p className="mt-2 text-[var(--color-muted-foreground)]">
-          This page doesn&apos;t exist — but that&apos;s exactly the kind of thing Sidetrack would check in on.
+          The other 3% would pay $12/month for it anyway.
         </p>
       </div>
       <Link

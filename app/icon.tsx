@@ -13,7 +13,7 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#4f46e5",
+          background: "linear-gradient(135deg, #7c3aed, #6366f1)",
           borderRadius: 8,
           color: "white",
           fontSize: 20,
@@ -21,7 +21,7 @@ export default function Icon() {
           fontFamily: "sans-serif",
         }}
       >
-        S
+        H
       </div>
     ),
     { ...size },
