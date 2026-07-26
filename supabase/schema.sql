@@ -39,9 +39,23 @@ create table if not exists checkins (
   created_at timestamptz not null default now()
 );
 
+-- One row per simulation run from /api/simulate. Written by the service-role
+-- client (server-side only), so no RLS policy is needed for inserts. Add a
+-- select policy if you later expose a "your past reports" view to users.
+create table if not exists reports (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id) on delete set null,
+  idea text not null,
+  try_percent int,
+  powered_by text,
+  report jsonb not null,
+  created_at timestamptz not null default now()
+);
+
 create index if not exists idx_tracks_user on tracks(user_id);
 create index if not exists idx_checkins_user on checkins(user_id);
 create index if not exists idx_checkins_track on checkins(track_id);
+create index if not exists idx_reports_created on reports(created_at desc);
 
 -- Row Level Security: users can only ever see/modify their own data.
 -- The check-in cron job bypasses all of this via the service-role key
@@ -54,30 +68,32 @@ drop policy if exists "Users can view own profile" on users;
 create policy "Users can view own profile" on users
   for select using (auth.uid() = id);
 
-drop policy if exists "Users can update own profile" on users;
-create policy "Users can update own profile" on users
-  for update using (auth.uid() = id);
+l›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆ\]HİÛˆ›Ùš[HˆÛˆ\Ù\œÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆ\]HİÛˆ›Ùš[HˆÛˆ\Ù\œÂˆ›Üˆ\]H\Ú[™È
+]]ZY
 
-drop policy if exists "Users can insert own profile" on users;
-create policy "Users can insert own profile" on users
-  for insert with check (auth.uid() = id);
+HHY
+NÂ‚™›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆ[œÙ\İÛˆ›Ùš[HˆÛˆ\Ù\œÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆ[œÙ\İÛˆ›Ùš[HˆÛˆ\Ù\œÂˆ›Üˆ[œÙ\Ú]ÚXÚÈ
+]]ZY
 
-drop policy if exists "Users can view own tracks" on tracks;
-create policy "Users can view own tracks" on tracks
-  for select using (auth.uid() = user_id);
+HHY
+NÂ‚™›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆšY]ÈİÛˆ˜XÚÜÈˆÛˆ˜XÚÜÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆšY]ÈİÛˆ˜XÚÜÈˆÛˆ˜XÚÜÂˆ›ÜˆÙ[Xİ\Ú[™È
+]]ZY
 
-drop policy if exists "Users can insert own tracks" on tracks;
-create policy "Users can insert own tracks" on tracks
-  for insert with check (auth.uid() = user_id);
+HH\Ù\—ÚY
+NÂ‚™›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆ[œÙ\İÛˆ˜XÚÜÈˆÛˆ˜XÚÜÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆ[œÙ\İÛˆ˜XÚÜÈˆÛˆ˜XÚÜÂˆ›Üˆ[œÙ\Ú]ÚXÚÈ
+]]ZY
 
-drop policy if exists "Users can update own tracks" on tracks;
-create policy "Users can update own tracks" on tracks
-  for update using (auth.uid() = user_id);
+HH\Ù\—ÚY
+NÂ‚™›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆ\]HİÛˆ˜XÚÜÈˆÛˆ˜XÚÜÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆ\]HİÛˆ˜XÚÜÈˆÛˆ˜XÚÜÂˆ›Üˆ\]H\Ú[™È
+]]ZY
 
-drop policy if exists "Users can delete own tracks" on tracks;
-create policy "Users can delete own tracks" on tracks
-  for delete using (auth.uid() = user_id);
+HH\Ù\—ÚY
+NÂ‚™›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆ[]HİÛˆ˜XÚÜÈˆÛˆ˜XÚÜÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆ[]HİÛˆ˜XÚÜÈˆÛˆ˜XÚÜÂˆ›Üˆ[]H\Ú[™È
+]]ZY
 
-drop policy if exists "Users can view own checkins" on checkins;
-create policy "Users can view own checkins" on checkins
-  for select using (auth.uid() = user_id);
+HH\Ù\—ÚY
+NÂ‚™›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆšY]ÈİÛˆÚXÚÚ[œÈˆÛˆÚXÚÚ[œÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆšY]ÈİÛˆÚXÚÚ[œÈˆÛˆÚXÚÚ[œÂˆ›ÜˆÙ[Xİ\Ú[™È
+]]ZY
+
+HH\Ù\—ÚY
+NÂ

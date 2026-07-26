@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { HundredMark } from "./icons";
 
 export function Nav() {
@@ -21,12 +22,12 @@ export function Nav() {
             Pricing
           </a>
         </nav>
-        <a
-          href="#waitlist"
+        <Link
+          href="/try"
           className="cursor-pointer rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-[var(--color-on-primary)] transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97]"
         >
-          Join the waitlist
-        </a>
+          Try it free
+        </Link>
       </div>
     </header>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 
 const DOTS = Array.from({ length: 26 }, (_, i) => ({
@@ -91,12 +92,12 @@ export function Hero() {
           transition={{ duration: 0.55, delay: 0.24 }}
           className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
-          <a
-            href="#waitlist"
+          <Link
+            href="/try"
             className="cursor-pointer rounded-full bg-[var(--color-primary)] px-7 py-3.5 text-sm font-semibold text-[var(--color-on-primary)] transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97]"
           >
-            Join the waitlist
-          </a>
+            Run a free panel →
+          </Link>
           <a
             href="#story"
             className="cursor-pointer rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/70 px-7 py-3.5 text-sm font-semibold text-[var(--color-foreground)] transition-colors duration-200 hover:border-[var(--color-ring)]"
