@@ -68,32 +68,30 @@ drop policy if exists "Users can view own profile" on users;
 create policy "Users can view own profile" on users
   for select using (auth.uid() = id);
 
-l›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆ\]HİÛˆ›Ùš[HˆÛˆ\Ù\œÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆ\]HİÛˆ›Ùš[HˆÛˆ\Ù\œÂˆ›Üˆ\]H\Ú[™È
-]]ZY
+drop policy if exists "Users can update own profile" on users;
+create policy "Users can update own profile" on users
+  for update using (auth.uid() = id);
 
-HHY
-NÂ‚™›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆ[œÙ\İÛˆ›Ùš[HˆÛˆ\Ù\œÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆ[œÙ\İÛˆ›Ùš[HˆÛˆ\Ù\œÂˆ›Üˆ[œÙ\Ú]ÚXÚÈ
-]]ZY
+drop policy if exists "Users can insert own profile" on users;
+create policy "Users can insert own profile" on users
+  for insert with check (auth.uid() = id);
 
-HHY
-NÂ‚™›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆšY]ÈİÛˆ˜XÚÜÈˆÛˆ˜XÚÜÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆšY]ÈİÛˆ˜XÚÜÈˆÛˆ˜XÚÜÂˆ›ÜˆÙ[Xİ\Ú[™È
-]]ZY
+drop policy if exists "Users can view own tracks" on tracks;
+create policy "Users can view own tracks" on tracks
+  for select using (auth.uid() = user_id);
 
-HH\Ù\—ÚY
-NÂ‚™›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆ[œÙ\İÛˆ˜XÚÜÈˆÛˆ˜XÚÜÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆ[œÙ\İÛˆ˜XÚÜÈˆÛˆ˜XÚÜÂˆ›Üˆ[œÙ\Ú]ÚXÚÈ
-]]ZY
+drop policy if exists "Users can insert own tracks" on tracks;
+create policy "Users can insert own tracks" on tracks
+  for insert with check (auth.uid() = user_id);
 
-HH\Ù\—ÚY
-NÂ‚™›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆ\]HİÛˆ˜XÚÜÈˆÛˆ˜XÚÜÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆ\]HİÛˆ˜XÚÜÈˆÛˆ˜XÚÜÂˆ›Üˆ\]H\Ú[™È
-]]ZY
+drop policy if exists "Users can update own tracks" on tracks;
+create policy "Users can update own tracks" on tracks
+  for update using (auth.uid() = user_id);
 
-HH\Ù\—ÚY
-NÂ‚™›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆ[]HİÛˆ˜XÚÜÈˆÛˆ˜XÚÜÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆ[]HİÛˆ˜XÚÜÈˆÛˆ˜XÚÜÂˆ›Üˆ[]H\Ú[™È
-]]ZY
+drop policy if exists "Users can delete own tracks" on tracks;
+create policy "Users can delete own tracks" on tracks
+  for delete using (auth.uid() = user_id);
 
-HH\Ù\—ÚY
-NÂ‚™›ÜÛXŞHYˆ^\İÈ•\Ù\œÈØ[ˆšY]ÈİÛˆÚXÚÚ[œÈˆÛˆÚXÚÚ[œÎÂ˜Ü™X]HÛXŞH•\Ù\œÈØ[ˆšY]ÈİÛˆÚXÚÚ[œÈˆÛˆÚXÚÚ[œÂˆ›ÜˆÙ[Xİ\Ú[™È
-]]ZY
-
-HH\Ù\—ÚY
-NÂ
+drop policy if exists "Users can view own checkins" on checkins;
+create policy "Users can view own checkins" on checkins
+  for select using (auth.uid() = user_id);
