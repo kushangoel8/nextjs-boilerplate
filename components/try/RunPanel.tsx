@@ -334,4 +334,92 @@ function ReportView({ report, reduce }: { report: Report; reduce: boolean }) {
   );
 }
 
-function CountUp({ value, reduce }: { value: number; reduce:+ÛÛX[ˆJHÂŸB
+function CountUp({ value, reduce }: { value: number; reduce: boolean }) {
+  const [n, setN] = useState(reduce ? value : 0);
+  useEffect(() => {
+    if (reduce) return;
+    let raf = 0;
+    const start = performance.now();
+    const dur = 900;
+    const tick = (t: number) => {
+      const p = Math.min(1, (t - start) / dur);
+      setN(Math.round(value * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [value, reduce]);
+  const color =
+    value >= 62 ? "var(--color-positive)" : value >= 45 ? "var(--color-warn)" : "var(--color-negative)";
+  return (
+    <span className="font-display text-6xl font-bold leading-none sm:text-7xl" style={{ color }}>
+      {n}
+    </span>
+  );
+}
+
+function SentimentSplit({ report, reduce }: { report: Report; reduce: boolean }) {
+  const { pos, neutral, neg } = report.sentiment;
+  const segs = [
+    { v: pos, c: "var(--color-positive)", label: "Yes" },
+    { v: neutral, c: "var(--color-warn)", label: "Maybe" },
+    { v: neg, c: "var(--color-negative)", label: "No" },
+  ];
+  return (
+    <div className="w-full max-w-xs">
+      <div className="flex h-3 w-full overflow-hidden rounded-full">
+        {segs.map((s, i) => (
+          <motion.div
+            key={s.label}
+            initial={reduce ? false : { width: 0 }}
+            animate={{ width: `${s.v}%` }}
+            transition={{ delay: 0.2 + i * 0.1, duration: 0.5 }}
+            style={{ background: s.c }}
+          />
+        ))}
+      </div>
+      <div className="mt-2 flex justify-between text-[11px] text-[var(--color-muted-foreground)]">
+        {segs.map((s) => (
+          <span key={s.label} className="flex items-center gap-1">
+            <span className="h-2 w-2 rounded-full" style={{ background: s.c }} />
+            {s.label} {s.v}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Bar({
+  label,
+  value,
+  color,
+  delay,
+  reduce,
+}: {
+  label: string;
+  value: number;
+  color: string;
+  delay: number;
+  reduce: boolean;
+}) {
+  return (
+    <div>
+      <div className="mb-1 flex items-center justify-between text-sm">
+        <span className="text-[var(--color-muted-foreground)]">{label}</span>
+        <span className="font-semibold" style={{ color }}>
+          {value}%
+        </span>
+      </div>
+      <div className="h-2.5 overflow-hidden rounded-full bg-[var(--color-muted)]">
+        <motion.div
+          initial={reduce ? false : { width: 0 }}
+          animate={{ width: `${value}%` }}
+          transition={{ delay, duration: 0.6, ease: "easeOut" }}
+          className="h-full rounded-full"
+          style={{ background: color }}
+        />
+      </div>
+    </div>
+  );
+}
